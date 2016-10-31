@@ -87,22 +87,22 @@ void		Graphic::draw()
 void		Graphic::loadTexture()
 {
   std::cout << "load txt" << std::endl;
-  if (!_texture["background"]->loadFromFile("../Ressource/background.png"))
+  if (!_texture["background"]->loadFromFile("../Ressources/background.png"))
     throw std::runtime_error("Failed load texture");
   _sprite["background"]->setTexture(*_texture["background"]);
-  if (!_texture["title"]->loadFromFile("../Ressource/title.png"))
+  if (!_texture["title"]->loadFromFile("../Ressources/title.png"))
     throw std::runtime_error("Failed load texture");
   _sprite["title"]->setTexture(*_texture["title"]);
-  if (!_texture["plateau"]->loadFromFile("../Ressource/plateau.png"))
+  if (!_texture["plateau"]->loadFromFile("../Ressources/plateau.png"))
     throw std::runtime_error("Failed load texture");
   _sprite["plateau"]->setTexture(*_texture["plateau"]);
-  if (!_texture["blanc"]->loadFromFile("../Ressource/blanc.png"))
+  if (!_texture["blanc"]->loadFromFile("../Ressources/blanc.png"))
     throw std::runtime_error("Failed load texture");
   _sprite["blanc"]->setTexture(*_texture["blanc"]);
-  if (!_texture["noir"]->loadFromFile("../Ressource/noir.png"))
+  if (!_texture["noir"]->loadFromFile("../Ressources/noir.png"))
     throw std::runtime_error("Failed load texture");
   _sprite["noir"]->setTexture(*_texture["noir"]);
-  if (!_texture["jvsj"]->loadFromFile("../Ressource/jvsj.png"))
+  if (!_texture["jvsj"]->loadFromFile("../Ressources/jvsj.png"))
     throw std::runtime_error("Failed load texture");
   _sprite["jvsj"]->setTexture(*_texture["jvsj"]);
   _sprite["jvsj"]->setPosition(350, 220);
@@ -110,7 +110,7 @@ void		Graphic::loadTexture()
   _jvsj.width = _sprite["jvsj"]->getLocalBounds().width - 50;
   _jvsj.left = 350 + 25;
   _jvsj.top = 220 + 30;
-  if (!_texture["jvsia"]->loadFromFile("../Ressource/jvsia.png"))
+  if (!_texture["jvsia"]->loadFromFile("../Ressources/jvsia.png"))
     throw std::runtime_error("Failed load texture");
   _sprite["jvsia"]->setTexture(*_texture["jvsia"]);
   _sprite["jvsia"]->setPosition(350, 220 + _sprite["jvsia"]->getLocalBounds().height + 80);
