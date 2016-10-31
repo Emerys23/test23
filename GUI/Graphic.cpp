@@ -1,3 +1,4 @@
+#include <stdexcept>
 #include "Graphic.hpp"
 
 Graphic::Graphic(sf::RenderWindow &window) : _window(window)
