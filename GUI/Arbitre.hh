@@ -5,7 +5,7 @@
 // Login   <lalin_r@epitech.net>
 // 
 // Started on  Sun Oct 30 11:30:14 2016 lalin_r
-// Last update Tue Nov  1 18:43:17 2016 lalin_r
+// Last update Tue Nov  1 19:00:50 2016 lalin_r
 //
 
 #ifndef		ARBITRE_HH_
@@ -28,6 +28,7 @@ public:
   int	check_exist(int);
   int	check_five();
   int	check_prise(int, int);
+  int	check_rules(int, int, int);
   int	**get_map();
   void	set_map(int **tab);
   void	add_prise(int);

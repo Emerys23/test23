@@ -5,7 +5,7 @@
 // Login   <lalin_r@epitech.net>
 // 
 // Started on  Sun Oct 30 11:30:37 2016 lalin_r
-// Last update Tue Nov  1 18:44:16 2016 lalin_r
+// Last update Tue Nov  1 19:00:23 2016 lalin_r
 //
 
 #include	"Arbitre.hh"
@@ -441,7 +441,7 @@ int	Arbitre::fill_d(int i, int j, int player)
 
 int	Arbitre::check_prise_d_h_g(int i, int j, int player, int nb)
 {
-  if (i < 0 || j < 0)
+  if (i < 0 || j < 0 || _map[i][j] == 0)
     return (0);
   if (_map[i][j] != player)
     nb++;
@@ -460,7 +460,7 @@ int	Arbitre::check_prise_d_h_g(int i, int j, int player, int nb)
 
 int	Arbitre::check_prise_d_h_d(int i, int j, int player, int nb)
 {
-  if (i < 0 || j >= 19)
+  if (i < 0 || j >= 19 || _map[i][j] == 0)
     return (0);
   if (_map[i][j] != player)
     nb++;
@@ -479,7 +479,7 @@ int	Arbitre::check_prise_d_h_d(int i, int j, int player, int nb)
 
 int	Arbitre::check_prise_d_b_g(int i, int j, int player, int nb)
 {
-  if (i >= 19 || j < 0)
+  if (i >= 19 || j < 0 || _map[i][j] == 0)
     return (0);
   if (_map[i][j] != player)
     nb++;
@@ -498,7 +498,7 @@ int	Arbitre::check_prise_d_b_g(int i, int j, int player, int nb)
 
 int	Arbitre::check_prise_d_b_d(int i, int j, int player, int nb)
 {
-  if (i >= 19 || j >= 19)
+  if (i >= 19 || j >= 19 || _map[i][j] == 0)
     return (0);
   if (_map[i][j] != player)
     nb++;
@@ -517,7 +517,7 @@ int	Arbitre::check_prise_d_b_d(int i, int j, int player, int nb)
 
 int	Arbitre::check_prise_h(int i, int j, int player, int nb)
 {
-  if (i < 0)
+  if (i < 0 || _map[i][j] == 0)
     return (0);
   if (_map[i][j] != player)
     nb++;
@@ -536,7 +536,7 @@ int	Arbitre::check_prise_h(int i, int j, int player, int nb)
 
 int	Arbitre::check_prise_b(int i, int j, int player, int nb)
 {
-  if (i >= 19)
+  if (i >= 19 || _map[i][j] == 0)
     return (0);
   if (_map[i][j] != player)
     nb++;
@@ -555,7 +555,7 @@ int	Arbitre::check_prise_b(int i, int j, int player, int nb)
 
 int	Arbitre::check_prise_g(int i, int j, int player, int nb)
 {
-  if (j < 0)
+  if (j < 0 || _map[i][j] == 0)
     return (0);
   if (_map[i][j] != player)
     nb++;
@@ -574,7 +574,7 @@ int	Arbitre::check_prise_g(int i, int j, int player, int nb)
 
 int	Arbitre::check_prise_d(int i, int j, int player, int nb)
 {
-  if (j >= 19)
+  if (j >= 19 || _map[i][j] == 0)
     return (0);
   if (_map[i][j] != player)
     nb++;
@@ -606,4 +606,14 @@ int	Arbitre::check_prise(int i, int j)
   if (tmp != 0)
     return (check_take());
   return (0);
+}
+
+int	Arbitre::check_rules(int x, int y, int player)
+{
+  if (check_exist(_map[x][y]) == -1)
+    return (-1);
+  _map[x][y] = player;
+  if (check_prise(x, y) > 0)
+    return (check_take());
+  return (check_five());
 }
