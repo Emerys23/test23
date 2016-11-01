@@ -44,6 +44,19 @@ int	**Arbitre::get_map()
 
 void	Arbitre::set_map(int **tab)
 {
+  // récuperer les coordonnées, la boucle 1 gère le j1 et la boucle 2 le j2, it->posX est la coordonné x de la node
+  // et it->posY est le y de la node, chaque node est un pion sur le plateau.
+  
+  /*
+  for (std::vector<Player>::iterator it = _player1.begin(); it != _player1.end(); ++it) {
+    bite[it->posX][it->posY] = 1;
+  }
+  for (std::vector<Player>::iterator it = _player2.begin(); it != _player2.end(); ++it) {
+    bite[it->posX][it->posY] = 2;
+  }   
+*/
+
+  
   int	i;
   int	j;
 
