@@ -5,7 +5,7 @@
 // Login   <lalin_r@epitech.net>
 // 
 // Started on  Sun Oct 30 11:30:37 2016 lalin_r
-// Last update Tue Nov  1 19:00:23 2016 lalin_r
+// Last update Tue Nov  1 21:11:49 2016 lalin_r
 //
 
 #include	"Arbitre.hh"
@@ -37,9 +37,32 @@ Arbitre::~Arbitre()
 {
 }
 
-int	**Arbitre::get_map()
+std::vector<std::vector<int> >	Arbitre::get_map()
 {
-  return (_map);
+  std::vector<std::vector<int> >	tab;
+  int	i;
+  int	j;
+
+  i = 0;
+  while (i < 19)
+    {
+      tab.push_back(std::vector<int>(19, 0));
+      i++;
+    }
+  i = 0;
+  j = 0;
+  while (i < 19)
+    {
+      while (j < 19)
+	{
+	  tab[i][j] = _map[i][j];
+	    j++;
+	}
+      i++;
+      i = 0;
+    }
+  
+  return (tab);
 }
 
 void	Arbitre::set_map(int **tab)
