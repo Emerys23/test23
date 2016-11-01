@@ -5,7 +5,7 @@
 // Login   <lalin_r@epitech.net>
 // 
 // Started on  Sun Oct 30 11:30:37 2016 lalin_r
-// Last update Mon Oct 31 10:50:48 2016 lalin_r
+// Last update Tue Nov  1 18:44:16 2016 lalin_r
 //
 
 #include	"Arbitre.hh"
@@ -35,6 +35,30 @@ Arbitre::Arbitre(int **map)
 
 Arbitre::~Arbitre()
 {
+}
+
+int	**Arbitre::get_map()
+{
+  return (_map);
+}
+
+void	Arbitre::set_map(int **tab)
+{
+  int	i;
+  int	j;
+
+  i = 0;
+  j = 0;
+  while (i < 19)
+    {
+      while (j < 19)
+	{
+	  _map[i][j] = tab[i][j];
+	  j++;
+	}
+      i++;
+      j = 0;
+    }
 }
 
 int	Arbitre::check_unassaillable_d_h_g(int **tab, int i, int j, int player)
