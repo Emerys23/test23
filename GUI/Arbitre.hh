@@ -5,7 +5,7 @@
 // Login   <lalin_r@epitech.net>
 // 
 // Started on  Sun Oct 30 11:30:14 2016 lalin_r
-// Last update Tue Nov  1 21:10:35 2016 lalin_r
+// Last update Tue Nov  1 22:59:42 2016 lalin_r
 //
 
 #ifndef		ARBITRE_HH_
@@ -13,6 +13,24 @@
 
 #include	<cstdlib>
 #include	<vector>
+#include	<iostream>
+
+class		Modif
+{
+private:
+  int	posX;
+  int	posY;
+  int	player;
+public:
+  Modif();
+  ~Modif();
+  int	get_posX();
+  int	get_posY();
+  void	set_posX(int);
+  void	set_posY(int);
+  int	get_player();
+  void	set_player(int);
+};
 
 class		Arbitre
 {
@@ -20,6 +38,7 @@ private:
   int		_player_1;
   int		_player_2;
   int		**_map;
+  std::vector<Modif>	*_modif;
 
 public:
   Arbitre();
@@ -30,7 +49,7 @@ public:
   int	check_five();
   int	check_prise(int, int);
   int	check_rules(int, int, int);
-  std::vector<std::vector<int> >	get_map();
+  std::vector<Modif>	*get_modif();
   void	set_map(int **tab);
   void	add_prise(int);
   int	check_win_five(int **, int, int, int, int);

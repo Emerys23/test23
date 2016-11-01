@@ -5,7 +5,7 @@
 // Login   <lalin_r@epitech.net>
 // 
 // Started on  Sun Oct 30 11:30:37 2016 lalin_r
-// Last update Tue Nov  1 21:11:49 2016 lalin_r
+// Last update Tue Nov  1 22:59:10 2016 lalin_r
 //
 
 #include	"Arbitre.hh"
@@ -17,6 +17,7 @@ Arbitre::Arbitre()
 
   _player_1 = 0;
   _player_2 = 0;
+  /*  _modif = new std::vector<Modif>;*/
   _map = (int **)(malloc(sizeof(int *) * 19));
   while (j < 19)
     _map[j++] = (int *)(malloc(sizeof(int) * 19));
@@ -37,33 +38,6 @@ Arbitre::~Arbitre()
 {
 }
 
-std::vector<std::vector<int> >	Arbitre::get_map()
-{
-  std::vector<std::vector<int> >	tab;
-  int	i;
-  int	j;
-
-  i = 0;
-  while (i < 19)
-    {
-      tab.push_back(std::vector<int>(19, 0));
-      i++;
-    }
-  i = 0;
-  j = 0;
-  while (i < 19)
-    {
-      while (j < 19)
-	{
-	  tab[i][j] = _map[i][j];
-	    j++;
-	}
-      i++;
-      i = 0;
-    }
-  
-  return (tab);
-}
 
 void	Arbitre::set_map(int **tab)
 {
@@ -413,65 +387,137 @@ void	Arbitre::add_prise(int player)
 
 int	Arbitre::fill_d_h_g(int i, int j, int player)
 {
+  Modif	tmp;
+
   if (_map[i][j] == player || _map[i][j] == 0)
     return (0);
+  tmp.set_posX(i);
+  tmp.set_posY(j);
+  tmp.set_player(player);
   _map[i][j] == player;
+  _modif->push_back(tmp);
+  /*  _modif[_modif->size - 1]->set_posX = i;
+  _modif[_modif->size - 1]->set_posY = j;
+  _modif[_modif->size - 1]->set_player = player;*/
   return (fill_d_h_g(i - 1, j - 1, player));
 }
 
 int	Arbitre::fill_d_h_d(int i, int j, int player)
 {
+  Modif	tmp;
+
   if (_map[i][j] == player || _map[i][j] == 0)
     return (0);
+  tmp.set_posX(i);
+  tmp.set_posY(j);
+  tmp.set_player(player);
   _map[i][j] == player;
+  _modif->push_back(tmp);
+  /*  _modif[_modif->size - 1]->set_posX = i;
+  _modif[_modif->size - 1]->set_posY = j;
+  _modif[_modif->size - 1]->set_player = player;*/
   return (fill_d_h_d(i - 1, j + 1, player));
 }
 
 int	Arbitre::fill_d_b_g(int i, int j, int player)
 {
+  Modif	tmp;
+
   if (_map[i][j] == player || _map[i][j] == 0)
     return (0);
+  tmp.set_posX(i);
+  tmp.set_posY(j);
+  tmp.set_player(player);
   _map[i][j] == player;
+  _modif->push_back(tmp);
+  /*  _modif[_modif->size - 1]->set_posX = i;
+  _modif[_modif->size - 1]->set_posY = j;
+  _modif[_modif->size - 1]->set_player = player;*/
   return (fill_d_b_g(i + 1, j - 1, player));
 }
 
 int	Arbitre::fill_d_b_d(int i, int j, int player)
 {
+  Modif	tmp;
+
   if (_map[i][j] == player || _map[i][j] == 0)
     return (0);
+  tmp.set_posX(i);
+  tmp.set_posY(j);
+  tmp.set_player(player);
   _map[i][j] == player;
+  _modif->push_back(tmp);
+  /*  _modif[_modif->size - 1]->set_posX = i;
+  _modif[_modif->size - 1]->set_posY = j;
+  _modif[_modif->size - 1]->set_player = player;*/
   return (fill_d_b_d(i + 1, j + 1, player));
 }
 
 int	Arbitre::fill_h(int i, int j, int player)
 {
+  Modif	tmp;
+
   if (_map[i][j] == player || _map[i][j] == 0)
     return (0);
+  tmp.set_posX(i);
+  tmp.set_posY(j);
+  tmp.set_player(player);
   _map[i][j] == player;
+  _modif->push_back(tmp);
+  /*  _modif[_modif->size - 1]->set_posX = i;
+  _modif[_modif->size - 1]->set_posY = j;
+  _modif[_modif->size - 1]->set_player = player;*/
   return (fill_h(i - 1, j, player));
 }
 
 int	Arbitre::fill_b(int i, int j, int player)
 {
+  Modif	tmp;
+
   if (_map[i][j] == player || _map[i][j] == 0)
     return (0);
+  tmp.set_posX(i);
+  tmp.set_posY(j);
+  tmp.set_player(player);
   _map[i][j] == player;
+  _modif->push_back(tmp);
+  /*  _modif[_modif->size - 1]->set_posX = i;
+  _modif[_modif->size - 1]->set_posY = j;
+  _modif[_modif->size - 1]->set_player = player;*/
   return (fill_b(i + 1, j, player));
 }
 
 int	Arbitre::fill_g(int i, int j, int player)
 {
+  Modif	tmp;
+
   if (_map[i][j] == player || _map[i][j] == 0)
     return (0);
+  tmp.set_posX(i);
+  tmp.set_posY(j);
+  tmp.set_player(player);
   _map[i][j] == player;
+  _modif->push_back(tmp);
+  /*  _modif[_modif->size - 1]->set_posX = i;
+  _modif[_modif->size - 1]->set_posY = j;
+  _modif[_modif->size - 1]->set_player = player;*/
   return (fill_g(i, j - 1, player));
 }
 
 int	Arbitre::fill_d(int i, int j, int player)
 {
+  Modif	tmp;
+
   if (_map[i][j] == player || _map[i][j] == 0)
     return (0);
+  tmp.set_posX(i);
+  tmp.set_posY(j);
+  tmp.set_player(player);
   _map[i][j] == player;
+  _modif->push_back(tmp);
+  /*  _modif[_modif->size - 1]->set_posX = i;
+  _modif[_modif->size - 1]->set_posY = j;
+  _modif[_modif->size - 1]->set_player = player;*/
   return (fill_d(i - 1, j + 1, player));
 }
 
@@ -652,4 +698,45 @@ int	Arbitre::check_rules(int x, int y, int player)
   if (check_prise(x, y) > 0)
     return (check_take());
   return (check_five());
+}
+
+std::vector<Modif>	*Arbitre::get_modif()
+{
+  return (_modif);
+}
+
+Modif::Modif()
+{
+  posX = 0;
+  posY = 0;
+  player = 0;
+}
+
+Modif::~Modif()
+{
+}
+
+int	Modif::get_posX()
+{
+  return (posX);
+}
+int	Modif::get_posY()
+{
+  return (posY);
+}int	Modif::get_player()
+{
+  return (player);
+}
+
+void	Modif::set_posX(int x)
+{
+  posX = x;
+}
+void	Modif::set_posY(int y)
+{
+  posY = y;
+}
+void	Modif::set_player(int player)
+{
+  player = player;
 }
